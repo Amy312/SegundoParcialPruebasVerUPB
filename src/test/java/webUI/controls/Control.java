@@ -21,6 +21,12 @@ public class Control {
         this.control.click();
     }
 
+    public void doubleClick(){
+        getControl();
+        this.control.click();
+        this.control.click();
+    }
+
     public boolean isControlDisplayed(){
         try {
             getControl();

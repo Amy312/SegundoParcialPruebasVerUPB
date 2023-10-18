@@ -27,16 +27,16 @@ public class BTest3 {
     public void createUserAndProject() throws InterruptedException {
 
         loginPage.signUpButton.click();
-        signUpPage.emailTextBox.setText("rojas@cosa.coma");
+        signUpPage.emailTextBox.setText("swansa@csa.com");
         signUpPage.passTextBox.setText("panqueS1to");
         signUpPage.sendButton.click();
 
         onBoardPage.nameTextBox.setText("Ambar Rojas");
         onBoardPage.nameButton.click();
         onBoardPage.eduButton.click();
-        onBoardPage.goToMenu.click();
+        onBoardPage.goToMenu.doubleClick();
 
-        Thread.sleep(60000);
+       // Thread.sleep(60000);
         Assertions.assertTrue(menuSection.addTaskButton.isControlDisplayed(),
                        "ERROR no me pude iniciar sesion");
 
@@ -52,12 +52,6 @@ public class BTest3 {
                 "ERROR, no se creo el proyecto");
 
 
-
-
-
-
-
-       //
 
     }
 }

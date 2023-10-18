@@ -14,7 +14,7 @@ public class BTest1 extends TestBase{
 
     @Test
     public void createUserTokenProjectDeleteTokenCreateProject() {
-        String user = "amy@queai.ito";
+        String user = "aaymy@queai.ito";
         String pass = "Amys4n23";
 
         JSONObject body = new JSONObject();

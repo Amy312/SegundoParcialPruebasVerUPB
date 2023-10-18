@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import webUI.controls.Button;
 
 public class MenuSection {
+
     public Button addTaskButton = new Button(By.xpath("//button[@data-track=\"navigation|quick_add\"]"));
 
     public Button projectButton = new Button(By.xpath("//div[@class=\"nuMVpup _2a3b75a1 _509a57b4 c4803194 b0e6eab4 cad4e2ec e5a9206f _50ba6b6b f6342c26 _34cd2b5e\"]"));

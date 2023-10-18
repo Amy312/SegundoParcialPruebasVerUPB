@@ -4,10 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import webUI.pages.todoist.LoginPage;
-import webUI.pages.todoist.MenuSection;
-import webUI.pages.todoist.OnBoardPage;
-import webUI.pages.todoist.SignUpPage;
+import webUI.pages.todoist.*;
 import webUI.session.Session;
 
 public class BTest3 {
@@ -16,6 +13,7 @@ public class BTest3 {
     MenuSection menuSection = new MenuSection();
 
     OnBoardPage onBoardPage = new OnBoardPage();
+    AddProjectSection addProjectSection = new AddProjectSection();
     @AfterEach
     public void close(){
         Session.getInstance().closeSession();
@@ -29,7 +27,7 @@ public class BTest3 {
     public void createUserAndProject() throws InterruptedException {
 
         loginPage.signUpButton.click();
-        signUpPage.emailTextBox.setText("amyaa@cosa.coma");
+        signUpPage.emailTextBox.setText("rojas@cosa.coma");
         signUpPage.passTextBox.setText("panqueS1to");
         signUpPage.sendButton.click();
 
@@ -37,14 +35,28 @@ public class BTest3 {
         onBoardPage.nameButton.click();
         onBoardPage.eduButton.click();
         onBoardPage.goToMenu.click();
+
+        Thread.sleep(60000);
         Assertions.assertTrue(menuSection.addTaskButton.isControlDisplayed(),
                        "ERROR no me pude iniciar sesion");
 
+        menuSection.projectButton.click();
+        menuSection.addProjectButton.click();
+
+        String name = "Proyecto 1";
+        addProjectSection.nametextBox.setText(name);
+        addProjectSection.addButton.click();
+
+        menuSection.setProjectName(name);
+        Assertions.assertTrue(menuSection.projectName.isControlDisplayed(),
+                "ERROR, no se creo el proyecto");
 
 
 
 
-        Thread.sleep(60000);
+
+
+
        //
 
     }

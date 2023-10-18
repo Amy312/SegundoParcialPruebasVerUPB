@@ -31,9 +31,13 @@ public class BTest2 extends TestBase{
         this.createItem(Configuration.host + "/api/items.json", body, post);
         int idItem4 = response.then().extract().path("Id");
 
-        //this.readProject(idProject, get, body);
+        this.readItem(idItem1, get, body);
+        this.readItem(idItem2, get, body2);
+        this.readItem(idItem3, get, body3);
+        this.readItem(idItem4, get, body4);
 
-        body.put("Content","My Project Updated");
+
+
        // this.updateProject(Configuration.host + "/api/projects/" + idProject + ".json", body, put);
        // this.deleteProject(idProject, delete, body);
     }
@@ -47,6 +51,13 @@ public class BTest2 extends TestBase{
     private void readItem(int idItem, String get, JSONObject body) {
         requestInfo.setUrl(Configuration.host + "/api/items/" + idItem + ".json");
         response = FactoryRequest.make(get).send(requestInfo);
+        response.then().statusCode(200).
+                body("Content", equalTo(body.get("Content")));
+    }
+
+    private void deleteItem(int idItem, String delete, JSONObject body) {
+        requestInfo.setUrl(Configuration.host + "/api/items/" + idItem + ".json");
+        response = FactoryRequest.make(delete).send(requestInfo);
         response.then().statusCode(200).
                 body("Content", equalTo(body.get("Content")));
     }
